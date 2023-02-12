@@ -1,0 +1,372 @@
+// FONTS
+
+@font-face {
+  font-family: "BonaNova";
+  src: url("../public/fonts/BonaNova.ttf");
+}
+
+@font-face {
+  font-family: "Varela";
+  src: url("../public/fonts/Varela.ttf");
+}
+
+@font-face {
+  font-family: "VarelaRound";
+  src: url("../public/fonts/VarelaRound.ttf");
+}
+
+/* colors */
+
+$black1: #020307;
+$black2: #434855;
+$white: #c5d8ef;
+$dblue1: #0b2059;
+$dblue2: #1944a1;
+$lblue1: #1061de;
+$lblue2: #369ee3;
+$orange: #ad4b22;
+
+/* colors */
+
+html {
+  font-family: "VarelaRound";
+  font-size: 1.5rem;
+}
+
+html,
+body,
+#__next,
+.page-container {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 2rem;
+  z-index: 7;
+}
+
+p {
+  font-size: 1rem;
+  z-index: 7;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  z-index: 7;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 7;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// HEADER
+
+.header-wrapper {
+  width: 100%;
+  height: 70px;
+
+  display: flex;
+  white-space: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  background: linear-gradient($black1, rgba($black1, 0));
+
+  animation: fadeIn ease 1s;
+  animation-delay: 0s;
+
+  .logo {
+    position: relative;
+    font-size: 1.7rem;
+    padding: 2vw;
+    z-index: 2;
+  }
+
+  .logo span {
+    color: $lblue2;
+  }
+
+  .nav-button {
+    position: relative;
+    display: none;
+    width: fit-content;
+    height: fit-content;
+
+    background-color: rgba($color: #000000, $alpha: 0);
+    columns: white;
+    z-index: 5;
+
+    svg {
+      z-index: 1;
+      color: white;
+      width: inherit;
+      height: inherit;
+    }
+  }
+
+  .mobile-link {
+    display: none;
+  }
+
+  .desktop-link {
+    position: relative;
+  }
+
+  @media screen and (max-width: 800px) {
+    .nav-button {
+      display: inline;
+      padding: 2vw;
+
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    #nav-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      max-width: 15rem;
+      height: 100vh;
+      width: 0;
+      background-color: rgba($dblue1, 0.3);
+      pointer-events: none;
+      backdrop-filter: blur(1px) brightness(0.05);
+      z-index: 10;
+
+      display: flex;
+      flex-direction: column;
+
+      transition: width 0.2s, opacity 0.2s;
+
+      display: flex;
+
+      .icon {
+        width: 1rem;
+        height: 1rem;
+        padding: 0 0.4em;
+      }
+
+      .mobile-links-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2em;
+
+        margin-top: 4rem;
+      }
+
+      .mobile-link {
+        display: inline;
+        pointer-events: all;
+
+        font-size: 1.4rem;
+      }
+    }
+
+    .links {
+      display: none;
+    }
+  }
+
+  .links {
+    padding: 2vw;
+
+    a {
+      display: inline-block;
+      position: relative;
+      padding: 0.5em;
+    }
+
+    a:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: $white;
+      transform-origin: bottom left;
+      transition: 0.25s ease-in-out;
+    }
+
+    a:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
+}
+
+// HOME PAGE
+
+.page-container {
+  position: relative;
+  background: url("../public/Images/main-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-flow: column;
+  overflow: hidden;
+}
+
+.stars {
+  position: fixed;
+  overflow: hidden;
+  width: 140%;
+  height: 140%;
+  pointer-events: none;
+  z-index: 1;
+
+  .bright {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .dim {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.planet-text {
+  position: relative;
+  margin: auto;
+  margin-top: 0.5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 31rem;
+
+  h2 {
+    font-family: "Varela";
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+
+    animation: fadeIn ease 1s;
+  }
+
+  h1 {
+    position: relative;
+    margin: 0;
+    font-family: "BonaNova";
+    font-size: 4rem;
+
+    animation: fadeIn ease 1s;
+  }
+
+  .title-underline {
+    border-radius: 5px;
+    width: 10rem;
+    height: 0.15rem;
+    background-color: $lblue2;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    text-shadow: 0 0 3rem rgba($white, 0.9);
+    margin-bottom: 2.5rem;
+    animation: fadeIn ease 1s;
+  }
+
+  button {
+    position: relative;
+    color: white;
+    width: 6rem;
+    font-size: 1rem;
+    height: 2rem;
+    border-radius: 2em;
+    background-color: $lblue1;
+    box-shadow: $white 0 0 13rem 0.001rem;
+    margin-bottom: 2.9em;
+    animation: fadeIn ease 1s;
+  }
+
+  @media screen and (max-width: 800px) {
+    h2 {
+      font-size: 0.8rem;
+    }
+
+    h1 {
+      font-size: 3.1rem;
+    }
+
+    .title-underline {
+      width: 8rem;
+      height: 0.08rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.planet-scene {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+
+  #active-planet {
+    pointer-events: none;
+  }
+
+  .flex-rotate {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    pointer-events: all;
+
+    .left-rotate {
+      height: 100%;
+      max-width: 1fr;
+      flex-grow: 1;
+    }
+    .mid-focus {
+      height: 100%;
+      max-width: 1fr;
+      flex-grow: 1;
+    }
+    .right-rotate {
+      height: 100%;
+      max-width: 1fr;
+      flex-grow: 1;
+    }
+  }
+}
+
+.planet-content {
+  width: 100%;
+  height: 200vh;
+}
